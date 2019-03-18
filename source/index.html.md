@@ -97,4 +97,4 @@ Select all the Unity Scenes in the 'Scene' folder from above and drag them over 
 
 # Troubleshooting
 
-If any questions please feel free to reach us on djo@seemba.com
+If any questions please feel free to reach us on support@seemba.com

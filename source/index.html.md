@@ -16,7 +16,7 @@ search: true
 
 # Introduction
 
-Welcome to the Seemba! You can use this documentation to integrate the Seemba Game Tournament and Monetization system.
+Welcome to the Seemba SDK documentation page! You can use this documentation to integrate the Seemba Game Tournament and Monetization system.
 
 # Downloading the Seemba SDK
 

@@ -23,8 +23,8 @@ Welcome to the Seemba SDK documentation page! You can use this documentation to 
 installing our SDK is really simple, just open a new cmd prompt and execute the following commands :
 
 1. Go into your game's folder : <code>cd YOUR_UNITY_PROJECT_FOLDER</code> .
-2. Install OpenUPM using : <code>$ npm install -g openupm-cli</code>.
-3. Add Seemba to your poject using : <code>$ openupm add com.seemba.unitysdk</code>.
+2. Install OpenUPM using : <code>npm install -g openupm-cli</code>.
+3. Add Seemba to your poject using : <code>openupm add com.seemba.unitysdk</code>.
 
 Now go back to Unity and wait for SeemabSDK while being imported.
 

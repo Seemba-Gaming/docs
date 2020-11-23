@@ -222,19 +222,21 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#downloading-the-seemba-sdk" class="toc-h1 toc-link" data-title="Downloading the Seemba SDK">Downloading the Seemba SDK</a>
-          </li>
-          <li>
-            <a href="#importing-the-sdk" class="toc-h1 toc-link" data-title="Importing the SDK">Importing the SDK</a>
+            <a href="#importing-the-seemba-sdk" class="toc-h1 toc-link" data-title="Importing the Seemba SDK">Importing the Seemba SDK</a>
           </li>
           <li>
             <a href="#configuring-the-sdk" class="toc-h1 toc-link" data-title="Configuring the SDK">Configuring the SDK</a>
-          </li>
-          <li>
-            <a href="#adding-the-tournament-and-duels-mode-to-the-game" class="toc-h1 toc-link" data-title="Adding the tournament and duels mode to the game">Adding the tournament and duels mode to the game</a>
-          </li>
-          <li>
-            <a href="#building" class="toc-h1 toc-link" data-title="Building">Building</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#entering-your-game-info" class="toc-h2 toc-link" data-title="Entering your game info">Entering your game info</a>
+                  </li>
+                  <li>
+                    <a href="#configuring-your-menu-scene" class="toc-h2 toc-link" data-title="Configuring your menu scene">Configuring your menu scene</a>
+                  </li>
+                  <li>
+                    <a href="#configuring-seemba-game-logic" class="toc-h2 toc-link" data-title="Configuring Seemba game logic">Configuring Seemba game logic</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#troubleshooting" class="toc-h1 toc-link" data-title="Troubleshooting">Troubleshooting</a>
@@ -250,71 +252,78 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the Seemba SDK documentation page! You can use this documentation to integrate the Seemba Game Tournament and Monetization system.</p>
-<h1 id='downloading-the-seemba-sdk'>Downloading the Seemba SDK</h1>
-<aside class="notice">
-Please create a game on our dashboard and contact the support to download the SDK as it is in early access and per recommendation only.
-</aside>
-<h1 id='importing-the-sdk'>Importing the SDK</h1>
-<p>In the Unity Editor, select from the menu &#39;Assets&#39;, &#39;Import Package&#39; and then &#39;Custom Package…&#39;. Navigate to the directory where you downloaded the Seemba for Unity SDK and select <code>SeembaSDK.unitypackage</code>.</p>
+<h1 id='importing-the-seemba-sdk'>Importing the Seemba SDK</h1>
+<p>installing our SDK is really simple, just open a new cmd prompt and execute the following commands :</p>
 
-<p><img src="images/screenshots/step1.png" alt="Step 1" /></p>
+<ol>
+<li>Go into your game&#39;s folder : <code>cd YOUR_UNITY_PROJECT_FOLDER</code> .</li>
+<li>Install OpenUPM using : <code>$ npm install -g openupm-cli</code>.</li>
+<li>Add Seemba to your poject using : <code>$ openupm add com.seemba.unitysdk</code>.</li>
+</ol>
 
-<p>Import all of the assets in the package.</p>
-
-<p><img src="images/screenshots/step2.png" alt="Step 2" /></p>
-
-<aside class="notice">
-Open <code>./SeembaSDK/Script/Manager/GamesManager.cs</code>
-</aside>
-
-<p><img src="images/screenshots/step3.png" alt="Step 3" /></p>
+<p>Now go back to Unity and wait for SeemabSDK while being imported.</p>
 <h1 id='configuring-the-sdk'>Configuring the SDK</h1>
-<blockquote>
-<p>To set those variables, use this code:</p>
-</blockquote>
-<pre class="highlight csharp tab-csharp"><code><span class="c1">//Set The Game Name</span>
-<span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="n">GameName</span><span class="p">=</span><span class="s">""</span><span class="p">;</span>
-<span class="c1">//Set Scene name of game , Entry point to the game</span>
-<span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="n">GameSceneName</span><span class="p">=</span><span class="s">""</span><span class="p">;</span>
-<span class="c1">//Set The Game Id shown in your Dashboard ,you can't start without   setting the correct id</span>
-<span class="k">internal</span> <span class="k">static</span> <span class="kt">string</span> <span class="n">gameId</span><span class="p">=</span><span class="s">""</span><span class="p">;</span>
-</code></pre>
-<blockquote>
-<p>Set the game URLs:</p>
-</blockquote>
-<pre class="highlight csharp tab-csharp"><code><span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="n">GAME_ANDROID_URL</span> <span class="p">=</span><span class="s">""</span><span class="p">;</span>
-<span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="n">GAME_IOS_URL</span> <span class="p">=</span> <span class="s">""</span><span class="p">;</span>
-</code></pre>
-<blockquote>
-<p>Configure the score sending:</p>
-</blockquote>
-<pre class="highlight csharp tab-csharp"><code><span class="n">Seemba</span> <span class="n">seemba</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Seemba</span> <span class="p">();</span>
-<span class="n">seemba</span><span class="p">.</span><span class="nf">setResult</span> <span class="p">(</span><span class="kt">int</span> <span class="n">score</span><span class="p">);</span>
-</code></pre>
-<p>Fill the needed informations:</p>
+<p>Once SeembaSDK is imported you have 4 simple steps to finish your configuration : </p>
+<h2 id='entering-your-game-info'>Entering your game info</h2>
+<p>On the Unity Editor menu go to <code>Seemba --&gt; Integartion parameters</code></p>
+
+<p><img src="images/screenshots/EditorMenu.png" alt="Step 1" /></p>
+
+<p>This window should appear :</p>
+
+<p><img src="images/screenshots/seembaIntegration.png" alt="Step 2" /></p>
+
+<p>Fill the informations with the ones on your dahshboard</p>
 
 <aside class="warning">
 Make sure that your game is configured on the dashboard side.
 </aside>
 
 <ol>
-<li>Change the attribute <code>GameName</code> value with the name of your game .</li>
+<li>Change the attribute <code>gameId</code> value with the ID of your game indicated on the dashboard .</li>
+<li>Change the attribute <code>GameName</code> value with the name of your game.</li>
 <li>Change the attribute <code>GameSceneName</code> value with the name of your game scene.</li>
-<li><p>Change the attribute <code>gameId</code> value with the ID of your game indicated on the dashboard.</p></li>
-<li><p>Change the attribute <code>GAME_ANDROID_URL</code> value with your Google Play Store    Application Link.</p></li>
-<li><p>Change the attribute <code>GAME_IOS_URL</code> value with your Apple AppStore Application Link.</p></li>
-<li><p>Open your <code>game over</code> script and add this few lines when player get his final score.</p></li>
+<li>Click Apply and close the window.</li>
 </ol>
-<h1 id='adding-the-tournament-and-duels-mode-to-the-game'>Adding the tournament and duels mode to the game</h1>
-<p>Add an “eSport tournament” button to your game menu</p>
+<h2 id='configuring-your-menu-scene'>Configuring your menu scene</h2>
+<p>Go to your first scene, create a new GameObject named seemba and <code>Seemba.cs</code> script to it.</p>
 
-<p><img src="images/screenshots/step4.png" alt="Step 4" /></p>
-<h1 id='building'>Building</h1>
-<p>Select all the Unity Scenes in the &#39;Scene&#39; folder from above and drag them over to the Build Settings Panel and drop them in the &#39;Scenes In Build&#39; area. Drag your game menu scene to be in order position 0 as below.</p>
+<p><img src="images/screenshots/createobject.png" alt="Step 3" /></p>
 
-<p><img src="images/screenshots/step5.png" alt="Step 5" /></p>
+<ol>
+<li>Create a new Button to launch Seemba Tournaments.</li>
+<li>Assign the OnClick action of this button with the Enter() function of Seemba.cs.</li>
+</ol>
+
+<p><img src="images/screenshots/config.png" alt="Step 4" /></p>
+<h2 id='configuring-seemba-game-logic'>Configuring Seemba game logic</h2>
+<ol>
+<li>Configure the score sending by changing your GameOver() function as the example shows :</li>
+</ol>
+<pre class="highlight csharp tab-csharp"><code><span class="k">if</span><span class="p">(</span><span class="n">Seemba</span><span class="p">.</span><span class="n">Get</span><span class="p">.</span><span class="n">IsSeemba</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Seemba</span><span class="p">.</span><span class="n">Get</span><span class="p">.</span><span class="nf">setResult</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">score</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p><img src="images/screenshots/sendingscore.png" alt="Step 5" /></p>
+
+<aside class="success">
+If your <strong>GAME SCENE</strong> is different than your <strong>MENU SCENE</strong>, ignore the rest you are done.
+</aside>
+
+<aside class="warning">
+If not, please follow this last step.
+</aside>
+
+<p>If your <strong>GAME SCENE</strong> is the same as your <strong>MENU SCENE</strong>, add these 3 lines to your <code>Start()</code> function in your GameController script.</p>
+<pre class="highlight csharp tab-csharp"><code><span class="k">if</span><span class="p">(</span><span class="n">EventsController</span><span class="p">.</span><span class="n">Get</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Play</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><img src="images/screenshots/onesceneconfig.png" alt="Step 6" /></p>
 <h1 id='troubleshooting'>Troubleshooting</h1>
-<p>If any questions please feel free to reach us on support@seemba.com</p>
+<p>If any questions please feel free to reach us on support@seemba.com </p>
 <!-- # Errors
 
 <aside class="notice">

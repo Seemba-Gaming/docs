@@ -18,83 +18,81 @@ search: true
 
 Welcome to the Seemba SDK documentation page! You can use this documentation to integrate the Seemba Game Tournament and Monetization system.
 
-# Downloading the Seemba SDK
+# Importing the Seemba SDK
 
-<aside class="notice">
-Please create a game on our dashboard and contact the support to download the SDK as it is in early access and per recommendation only.
-</aside>
+installing our SDK is really simple, just open a new cmd prompt and execute the following commands :
 
-# Importing the SDK
+1. Go into your game's folder : <code>cd YOUR_UNITY_PROJECT_FOLDER</code> .
+2. Install OpenUPM using : <code>$ npm install -g openupm-cli</code>.
+3. Add Seemba to your poject using : <code>$ openupm add com.seemba.unitysdk</code>.
 
-In the Unity Editor, select from the menu 'Assets', 'Import Package' and then 'Custom Package…'. Navigate to the directory where you downloaded the Seemba for Unity SDK and select <code>SeembaSDK.unitypackage</code>.
-
-![Step 1](/images/screenshots/step1.png)
-
-Import all of the assets in the package.
-
-![Step 2](/images/screenshots/step2.png)
-
-<aside class="notice">
-Open <code>./SeembaSDK/Script/Manager/GamesManager.cs</code>
-</aside>
-
-![Step 3](/images/screenshots/step3.png)
+Now go back to Unity and wait for SeemabSDK while being imported.
 
 # Configuring the SDK
+Once SeembaSDK is imported you have 4 simple steps to finish your configuration : 
+## Entering your game info
+On the Unity Editor menu go to <code>Seemba --> Integartion parameters</code>
 
-> To set those variables, use this code:
+![Step 1](/images/screenshots/EditorMenu.png)
 
-```csharp
-//Set The Game Name
-public static string GameName="";
-//Set Scene name of game , Entry point to the game
-public static string GameSceneName="";
-//Set The Game Id shown in your Dashboard ,you can't start without   setting the correct id
-internal static string gameId="";
-```
+This window should appear :
 
-> Set the game URLs:
+![Step 2](/images/screenshots/seembaIntegration.png)
 
-```csharp
-public static string GAME_ANDROID_URL ="";
-public static string GAME_IOS_URL = "";
-```
-
-> Configure the score sending:
-
-```csharp
-Seemba seemba = new Seemba ();
-seemba.setResult (int score);
-```
-
-Fill the needed informations:
+Fill the informations with the ones on your dahshboard
 
 <aside class="warning">
 Make sure that your game is configured on the dashboard side.
 </aside>
 
-1. Change the attribute <code>GameName</code> value with the name of your game .
-2. Change the attribute <code>GameSceneName</code> value with the name of your game scene.
-3. Change the attribute <code>gameId</code> value with the ID of your game indicated on the dashboard.
+1. Change the attribute <code>gameId</code> value with the ID of your game indicated on the dashboard .
+2. Change the attribute <code>GameName</code> value with the name of your game.
+3. Change the attribute <code>GameSceneName</code> value with the name of your game scene.
+4. Click Apply and close the window.
 
+## Configuring your menu scene
 
-4. Change the attribute <code>GAME_ANDROID_URL</code> value with your Google Play Store    Application Link.
-5. Change the attribute <code>GAME_IOS_URL</code> value with your Apple AppStore Application Link.
+Go to your first scene, create a new GameObject named seemba and <code>Seemba.cs</code> script to it.
 
-6. Open your <code>game over</code> script and add this few lines when player get his final score.
+![Step 3](/images/screenshots/createobject.png)
 
-# Adding the tournament and duels mode to the game
+1. Create a new Button to launch Seemba Tournaments.
+2. Assign the OnClick action of this button with the Enter() function of Seemba.cs.
 
-Add an “eSport tournament” button to your game menu
+![Step 4](/images/screenshots/config.png)
 
-![Step 4](/images/screenshots/step4.png)
+## Configuring Seemba game logic
 
-# Building
+1. Configure the score sending by changing your GameOver() function as the example shows :
 
-Select all the Unity Scenes in the 'Scene' folder from above and drag them over to the Build Settings Panel and drop them in the 'Scenes In Build' area. Drag your game menu scene to be in order position 0 as below.
+```csharp
+if(Seemba.Get.IsSeemba)
+{
+    Seemba.Get.setResult((int)score);
+}
+```
 
-![Step 5](/images/screenshots/step5.png)
+![Step 5](/images/screenshots/sendingscore.png)
+
+<aside class="success">
+If your <strong>GAME SCENE</strong> is different than your <strong>MENU SCENE</strong>, ignore the rest you are done.
+</aside>
+<aside class="warning">
+If not, please follow this last step.
+</aside>
+
+ If your <strong>GAME SCENE</strong> is the same as your <strong>MENU SCENE</strong>, add these 3 lines to your <code>Start()</code> function in your GameController script.
+
+```csharp
+if(EventsController.Get != null)
+{
+    Play();
+}
+```
+
+![Step 6](/images/screenshots/onesceneconfig.png)
 
 # Troubleshooting
 
-If any questions please feel free to reach us on support@seemba.com
+If any questions please feel free to reach us on support@seemba.com 
+[//]: # "<span style="color:#F3F7F9"> you won't have any unless you're dumb </span>"

@@ -3,23 +3,10 @@
 # https://hub.docker.com/r/library/ruby/tags/
 image: "slatedocs/slate"
 
-# Cache gems in between builds
-cache:
-  paths:
-    - vendor/ruby
-
-# This is a basic example for a gem or script which doesn't use
-# services such as redis or postgres
-before_script:
-  - ruby -v  # Print out ruby version for debugging
-  # Uncomment next line if your rails app needs a JS runtime:
-  # - apt-get update -q && apt-get install nodejs -yqq
-  - bundle install -j $(nproc) --path vendor  # Install dependencies into ./vendor/ruby
-
 build:
   stage: build
   script:
-    - bundle exec middleman build
+    - ./srv/slate/slate.sh build
   artifacts:
     expire_in: 1 week
     paths:

@@ -62,8 +62,13 @@ Go to your first scene, create a new GameObject named seemba and <code>Seemba.cs
 ![Step 4](/images/screenshots/config.png)
 
 ## Configuring Seemba game logic
+1. Add our package to your GameController.cs script : 
 
-1. Configure the score sending by changing your GameOver() function as the example shows :
+```csharp
+using SeembaSDK;
+```
+
+2. Configure the score sending by changing your GameOver() function as the example shows :
 
 ```csharp
 if(Seemba.Get.IsSeemba)

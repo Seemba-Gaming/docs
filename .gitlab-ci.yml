@@ -19,7 +19,7 @@ before_script:
 build:
   stage: build
   script:
-    - bundle exec middleman build
+    - bundle exec middleman build --verbose
   artifacts:
     expire_in: 1 week
     paths:

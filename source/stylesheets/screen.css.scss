@@ -479,6 +479,10 @@ html, body {
     &.success {
       background-color: $aside-success-bg;
     }
+
+    &.notice {
+      background-color: $aside-notice-bg;
+    }
   }
 
   aside:before {

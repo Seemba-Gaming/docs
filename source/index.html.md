@@ -101,3 +101,103 @@ if(EventsController.Get != null)
 
 If any questions please feel free to reach us on support@seemba.com 
 [//]: # "<span style="color:#F3F7F9"> you won't have any unless you're dumb </span>"
+# Advanced Integration
+## Deep Linking
+Deep links are links that point directly to content within your application. Unity uses the Application.absoluteURL property and Application.deepLinkActivated event to support deep links on the following platforms:
+
+* Android
+* iOS
+
+We will need this class file: 
+
+```csharp
+public class ProcessDeepLinkMngr : MonoBehaviour
+{
+    public static ProcessDeepLinkMngr Instance { get; private set; }
+    public string deeplinkURL;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;                
+            Application.deepLinkActivated += onDeepLinkActivated;
+            if (!String.IsNullOrEmpty(Application.absoluteURL))
+            {
+                // Cold start and Application.absoluteURL not null so process Deep Link.
+                onDeepLinkActivated(Application.absoluteURL);
+            }
+            // Initialize DeepLink Manager global variable.
+            else deeplinkURL = "[none]";
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+ 
+    private void onDeepLinkActivated(string url)
+    {
+        // Update DeepLink Manager global variable, so URL can be accessed from anywhere.
+        deeplinkURL = url;
+    }
+}
+```
+### I already have Deep Linking integrated in my project
+In this case, we assume that you already have the file ProcessDeepLinkMngr.cs.
+You just need to add this line in the **onDeepLinkActivated** method :
+
+<code>Seemba.Get.OnDeepLinkActivated(url);</code>
+
+The process to configure an application to react to specific URLs is platform-specific.
+### IOS
+if you already have Deep Linking in your project, it means you have added at least one scheme to open with Deep Linking.
+Just add a new scheme for us so your players can open seemba dierctly with a notification.
+
+### Android
+if you already have Deep Linking in your project, it means you have an <code>AndroidManifest.xml</code> file, just add this line to your file :
+
+<code> &lt;data android:scheme="YouSchemeName" android:host="seemba" /&gt;</code>
+
+### I want to integrate Deep Linking in my project
+### IOS
+To add a URL scheme, follow these steps:
+
+1. Open the iOS Player Settings window (menu: **Edit** > **Project Settings** > **Player Settings**, then select iOS).
+2. Select **Other Settings**, then scroll down to Configuration.
+3. Expand the Supported URL schemes section and, in the Element 0 field, enter the URL scheme associated with your app (for example, GameName).
+
+This makes your app open any link that starts with GameName:// and allows you to process the URL in the Application.deepLinkActivated event.
+
+### Android
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+  <application>
+    <activity android:name="com.unity3d.player.UnityPlayerActivity" android:theme="@style/UnityThemeSelector" >
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="YouSchemeName" android:host="seemba" />
+      </intent-filter>
+    </activity>
+  </application>
+</manifest>
+```
+
+To enable deep linking, you need to set up an intent filter that overrides the standard app manifest to include a specific intent-filter section for Activity. The simplest way is to place the following <code>AndroidManifest.xml</code> file into your Project’s <code>Assets/Plugins/Android</code> folder. Unity automatically processes this file when you build your app:
+
+
+
+<aside class="notice">
+If you already have an AndroidManifest.xml file in <code>Assets/Plugins/Android</code>, just create a Folder in that path and put the new <code>AndroidManifest.xml</code> there (for example, <code>Assets/Plugins/Android/Seemba</code>).
+</aside>
+
+
+

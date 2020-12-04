@@ -385,8 +385,8 @@ You just need to add this line in the <strong>onDeepLinkActivated</strong> metho
 
 <p>The process to configure an application to react to specific URLs is platform-specific.</p>
 <h3 id='ios'>IOS</h3>
-<p>if you already have Deep Linking in your project, it means you have added at least one scheme to open with Deep Linking.
-Just add a new scheme for us so your players can open seemba dierctly with a notification.</p>
+<p>if you already have Deep Linking in your project, it means you have added your scheme to open with Deep Linking.
+You don&#39;t need to do anything, you&#39;re all set!</p>
 <h3 id='android'>Android</h3>
 <p>if you already have Deep Linking in your project, it means you have an <code>AndroidManifest.xml</code> file, just add this line to your file :</p>
 
@@ -396,11 +396,11 @@ Just add a new scheme for us so your players can open seemba dierctly with a not
 
 <ol>
 <li>Open the iOS Player Settings window (menu: <strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Player Settings</strong>, then select iOS).</li>
-<li>Select <strong>Other Settings</strong>, then scroll down to Configuration.</li>
+<li>Select <strong>Other Settings</strong>, then scroll down to <strong>Configuration</strong>.</li>
 <li>Expand the Supported URL schemes section and, in the Element 0 field, enter the URL scheme associated with your app (for example, GameName).</li>
 </ol>
 
-<p>This makes your app open any link that starts with GameName:// and allows you to process the URL in the Application.deepLinkActivated event.</p>
+<p>This makes your app open any link that starts with <code>GameName://</code> and allows you to process the URL in the <code>Application.deepLinkActivated</code> event.</p>
 <h3 id='android-2'>Android</h3><pre class="highlight xml tab-xml"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
 <span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span> <span class="na">xmlns:tools=</span><span class="s">"http://schemas.android.com/tools"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;application&gt;</span>

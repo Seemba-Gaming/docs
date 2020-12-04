@@ -151,8 +151,8 @@ You just need to add this line in the **onDeepLinkActivated** method :
 
 The process to configure an application to react to specific URLs is platform-specific.
 ### IOS
-if you already have Deep Linking in your project, it means you have added at least one scheme to open with Deep Linking.
-Just add a new scheme for us so your players can open seemba dierctly with a notification.
+if you already have Deep Linking in your project, it means you have added your scheme to open with Deep Linking.
+You don't need to do anything, you're all set!
 
 ### Android
 if you already have Deep Linking in your project, it means you have an <code>AndroidManifest.xml</code> file, just add this line to your file :
@@ -164,10 +164,10 @@ if you already have Deep Linking in your project, it means you have an <code>And
 To add a URL scheme, follow these steps:
 
 1. Open the iOS Player Settings window (menu: **Edit** > **Project Settings** > **Player Settings**, then select iOS).
-2. Select **Other Settings**, then scroll down to Configuration.
+2. Select **Other Settings**, then scroll down to **Configuration**.
 3. Expand the Supported URL schemes section and, in the Element 0 field, enter the URL scheme associated with your app (for example, GameName).
 
-This makes your app open any link that starts with GameName:// and allows you to process the URL in the Application.deepLinkActivated event.
+This makes your app open any link that starts with <code>GameName://</code> and allows you to process the URL in the <code>Application.deepLinkActivated</code> event.
 
 ### Android
 

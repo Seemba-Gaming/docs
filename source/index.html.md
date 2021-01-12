@@ -98,8 +98,13 @@ if(EventsController.Get != null)
 ![Step 6](/images/screenshots/onesceneconfig.png)
 
 # Troubleshooting
+## I can't see the accept terms of use and privacy policy text !
+To fix this issue, you need to import the essential ressources of TextMeshPro.
+in order to this follow these steps.
 
-If any questions please feel free to reach us on support@seemba.com 
+<code>Window --> TextMeshPro --> Import TMP Essential Ressources</code>
+
+If any other questions please feel free to reach us on support@seemba.com 
 [//]: # "<span style="color:#F3F7F9"> you won't have any unless you're dumb </span>"
 # Advanced Integration
 ## Deep Linking

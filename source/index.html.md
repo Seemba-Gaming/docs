@@ -18,7 +18,7 @@ search: true
 
 Welcome to the Seemba SDK documentation page! You can use this documentation to integrate the Seemba Game Tournament and Monetization system.
 
-# Importing the Seemba SDK
+# Importing the Seemba SDK Base Code
 
 installing our SDK is really simple, just open a new cmd prompt and execute the following commands :
 
@@ -29,7 +29,7 @@ installing our SDK is really simple, just open a new cmd prompt and execute the 
 Now go back to Unity and wait for SeemabSDK while being imported.
 
 # Configuring the SDK
-Once SeembaSDK is imported you have 4 simple steps to finish your configuration : 
+Once SeembaSDK is imported you have a few simple steps to finish your configuration : 
 ## Entering your game info
 On the Unity Editor menu go to <code>Seemba --> Integartion parameters</code>
 
@@ -50,16 +50,22 @@ Make sure that your game is configured on the dashboard side.
 3. Change the attribute <code>GameSceneName</code> value with the name of your game scene.
 4. Click Apply and close the window.
 
+## Installing the Main Package
+
+On the Unity Editor menu go to <code>Seemba --> Install Package</code>
+
+![Step 3](/images/screenshots/Install-package.png)
+
 ## Configuring your menu scene
 
 Go to your first scene, create a new GameObject named seemba and <code>Seemba.cs</code> script to it.
 
-![Step 3](/images/screenshots/createobject.png)
+![Step 4](/images/screenshots/createobject.png)
 
 1. Create a new Button to launch Seemba Tournaments.
 2. Assign the OnClick action of this button with the Enter() function of Seemba.cs.
 
-![Step 4](/images/screenshots/config.png)
+![Step 5](/images/screenshots/config.png)
 
 ## Configuring Seemba game logic
 1. Add our package to your GameController.cs script : 
@@ -77,7 +83,7 @@ if(Seemba.Get.IsSeemba)
 }
 ```
 
-![Step 5](/images/screenshots/sendingscore.png)
+![Step 6](/images/screenshots/sendingscore.png)
 
 <aside class="success">
 If your <strong>GAME SCENE</strong> is different than your <strong>MENU SCENE</strong>, ignore the rest you are done.
@@ -95,7 +101,7 @@ if(EventsController.Get != null)
 }
 ```
 
-![Step 6](/images/screenshots/onesceneconfig.png)
+![Step 7](/images/screenshots/onesceneconfig.png)
 
 # Troubleshooting
 ## I can't see the accept terms of use and privacy policy text !

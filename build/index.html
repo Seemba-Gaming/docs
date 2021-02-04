@@ -222,13 +222,16 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#importing-the-seemba-sdk" class="toc-h1 toc-link" data-title="Importing the Seemba SDK">Importing the Seemba SDK</a>
+            <a href="#importing-the-seemba-sdk-base-code" class="toc-h1 toc-link" data-title="Importing the Seemba SDK Base Code">Importing the Seemba SDK Base Code</a>
           </li>
           <li>
             <a href="#configuring-the-sdk" class="toc-h1 toc-link" data-title="Configuring the SDK">Configuring the SDK</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#entering-your-game-info" class="toc-h2 toc-link" data-title="Entering your game info">Entering your game info</a>
+                  </li>
+                  <li>
+                    <a href="#installing-the-main-package" class="toc-h2 toc-link" data-title="Installing the main Package">Installing the main Package</a>
                   </li>
                   <li>
                     <a href="#configuring-your-menu-scene" class="toc-h2 toc-link" data-title="Configuring your menu scene">Configuring your menu scene</a>
@@ -265,7 +268,7 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the Seemba SDK documentation page! You can use this documentation to integrate the Seemba Game Tournament and Monetization system.</p>
-<h1 id='importing-the-seemba-sdk'>Importing the Seemba SDK</h1>
+<h1 id='importing-the-seemba-sdk-base-code'>Importing the Seemba SDK Base Code</h1>
 <p>installing our SDK is really simple, just open a new cmd prompt and execute the following commands :</p>
 
 <ol>
@@ -276,7 +279,7 @@
 
 <p>Now go back to Unity and wait for SeemabSDK while being imported.</p>
 <h1 id='configuring-the-sdk'>Configuring the SDK</h1>
-<p>Once SeembaSDK is imported you have 4 simple steps to finish your configuration : </p>
+<p>Once SeembaSDK is imported you have a few simple steps to finish your configuration : </p>
 <h2 id='entering-your-game-info'>Entering your game info</h2>
 <p>On the Unity Editor menu go to <code>Seemba --&gt; Integartion parameters</code></p>
 
@@ -298,17 +301,21 @@ Make sure that your game is configured on the dashboard side.
 <li>Change the attribute <code>GameSceneName</code> value with the name of your game scene.</li>
 <li>Click Apply and close the window.</li>
 </ol>
+<h2 id='installing-the-main-package'>Installing the main Package</h2>
+<p>On the Unity Editor menu go to <code>Seemba --&gt; Install Package</code></p>
+
+<p><img src="images/screenshots/Install-package.png" alt="Step 3" /></p>
 <h2 id='configuring-your-menu-scene'>Configuring your menu scene</h2>
 <p>Go to your first scene, create a new GameObject named seemba and <code>Seemba.cs</code> script to it.</p>
 
-<p><img src="images/screenshots/createobject.png" alt="Step 3" /></p>
+<p><img src="images/screenshots/createobject.png" alt="Step 4" /></p>
 
 <ol>
 <li>Create a new Button to launch Seemba Tournaments.</li>
 <li>Assign the OnClick action of this button with the Enter() function of Seemba.cs.</li>
 </ol>
 
-<p><img src="images/screenshots/config.png" alt="Step 4" /></p>
+<p><img src="images/screenshots/config.png" alt="Step 5" /></p>
 <h2 id='configuring-seemba-game-logic'>Configuring Seemba game logic</h2>
 <ol>
 <li>Add our package to your GameController.cs script : </li>
@@ -323,7 +330,7 @@ Make sure that your game is configured on the dashboard side.
     <span class="n">Seemba</span><span class="p">.</span><span class="n">Get</span><span class="p">.</span><span class="nf">setResult</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">score</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<p><img src="images/screenshots/sendingscore.png" alt="Step 5" /></p>
+<p><img src="images/screenshots/sendingscore.png" alt="Step 6" /></p>
 
 <aside class="success">
 If your <strong>GAME SCENE</strong> is different than your <strong>MENU SCENE</strong>, ignore the rest you are done.
@@ -339,7 +346,7 @@ If not, please follow this last step.
     <span class="nf">Play</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre>
-<p><img src="images/screenshots/onesceneconfig.png" alt="Step 6" /></p>
+<p><img src="images/screenshots/onesceneconfig.png" alt="Step 7" /></p>
 <h1 id='troubleshooting'>Troubleshooting</h1><h2 id='i-can-39-t-see-the-accept-terms-of-use-and-privacy-policy-text'>I can&#39;t see the accept terms of use and privacy policy text !</h2>
 <p>To fix this issue, you need to import the essential ressources of TextMeshPro.
 in order to this follow these steps.</p>

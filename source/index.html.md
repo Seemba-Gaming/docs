@@ -33,7 +33,7 @@ Once SeembaSDK is imported you have a few simple steps to finish your configurat
 ## Entering your game info
 On the Unity Editor menu go to <code>Seemba --> Integartion parameters</code>
 
-![Step 1](/images/screenshots/EditorMenu.png)
+![Step 1](/images/screenshots/1.png)
 
 This window should appear :
 
@@ -45,10 +45,10 @@ Fill the informations with the ones on your dahshboard
 Make sure that your game is configured on the dashboard side.
 </aside>
 
-1. Change the attribute <code>gameId</code> value with the ID of your game indicated on the dashboard .
-2. Change the attribute <code>GameName</code> value with the name of your game.
-3. Change the attribute <code>GameSceneName</code> value with the name of your game scene.
-4. Click Apply and close the window.
+1. Change the attribute **GAME_ID** value with the ID of your game indicated on the dashboard .
+2. Change the attribute **GAME_NAME** value with the name of your game.
+3. Change the attribute **GAME_SCENE_NAME** value with the name of your game scene.
+4. Click **Apply** and close the window.
 
 ## Installing the Main Package
 
@@ -119,7 +119,7 @@ Deep links are links that point directly to content within your application. Uni
 * Android
 * iOS
 
-We will need this class file: 
+We will need the **ProcessDeepLinkMngr.cs** class file: 
 
 ```csharp
 public class ProcessDeepLinkMngr : MonoBehaviour
@@ -155,7 +155,7 @@ public class ProcessDeepLinkMngr : MonoBehaviour
 }
 ```
 ### I already have Deep Linking integrated in my project
-In this case, we assume that you already have the file ProcessDeepLinkMngr.cs.
+In this case, we assume that you already have the file **ProcessDeepLinkMngr.cs**.
 You just need to add this line in the **onDeepLinkActivated** method :
 
 <code>Seemba.Get.OnDeepLinkActivated(url);</code>

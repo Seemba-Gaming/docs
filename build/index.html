@@ -231,7 +231,7 @@
                     <a href="#entering-your-game-info" class="toc-h2 toc-link" data-title="Entering your game info">Entering your game info</a>
                   </li>
                   <li>
-                    <a href="#installing-the-main-package" class="toc-h2 toc-link" data-title="Installing the main Package">Installing the main Package</a>
+                    <a href="#installing-the-main-package" class="toc-h2 toc-link" data-title="Installing the Main Package">Installing the Main Package</a>
                   </li>
                   <li>
                     <a href="#configuring-your-menu-scene" class="toc-h2 toc-link" data-title="Configuring your menu scene">Configuring your menu scene</a>
@@ -283,7 +283,7 @@
 <h2 id='entering-your-game-info'>Entering your game info</h2>
 <p>On the Unity Editor menu go to <code>Seemba --&gt; Integartion parameters</code></p>
 
-<p><img src="images/screenshots/EditorMenu.png" alt="Step 1" /></p>
+<p><img src="images/screenshots/1.png" alt="Step 1" /></p>
 
 <p>This window should appear :</p>
 
@@ -296,12 +296,12 @@ Make sure that your game is configured on the dashboard side.
 </aside>
 
 <ol>
-<li>Change the attribute <code>gameId</code> value with the ID of your game indicated on the dashboard .</li>
-<li>Change the attribute <code>GameName</code> value with the name of your game.</li>
-<li>Change the attribute <code>GameSceneName</code> value with the name of your game scene.</li>
-<li>Click Apply and close the window.</li>
+<li>Change the attribute <strong>GAME_ID</strong> value with the ID of your game indicated on the dashboard .</li>
+<li>Change the attribute <strong>GAME_NAME</strong> value with the name of your game.</li>
+<li>Change the attribute <strong>GAME_SCENE_NAME</strong> value with the name of your game scene.</li>
+<li>Click <strong>Apply</strong> and close the window.</li>
 </ol>
-<h2 id='installing-the-main-package'>Installing the main Package</h2>
+<h2 id='installing-the-main-package'>Installing the Main Package</h2>
 <p>On the Unity Editor menu go to <code>Seemba --&gt; Install Package</code></p>
 
 <p><img src="images/screenshots/Install-package.png" alt="Step 3" /></p>
@@ -362,7 +362,7 @@ in order to this follow these steps.</p>
 <li>iOS</li>
 </ul>
 
-<p>We will need this class file: </p>
+<p>We will need the <strong>ProcessDeepLinkMngr.cs</strong> class file: </p>
 <pre class="highlight csharp tab-csharp"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">ProcessDeepLinkMngr</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="k">static</span> <span class="n">ProcessDeepLinkMngr</span> <span class="n">Instance</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">private</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
@@ -395,7 +395,7 @@ in order to this follow these steps.</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre><h3 id='i-already-have-deep-linking-integrated-in-my-project'>I already have Deep Linking integrated in my project</h3>
-<p>In this case, we assume that you already have the file ProcessDeepLinkMngr.cs.
+<p>In this case, we assume that you already have the file <strong>ProcessDeepLinkMngr.cs</strong>.
 You just need to add this line in the <strong>onDeepLinkActivated</strong> method :</p>
 
 <p><code>Seemba.Get.OnDeepLinkActivated(url);</code></p>

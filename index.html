@@ -1,0 +1,475 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Seemba SDK Integration Guide</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;csharp&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="csharp">csharp</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#importing-the-seemba-sdk-base-code" class="toc-h1 toc-link" data-title="Importing the Seemba SDK Base Code">Importing the Seemba SDK Base Code</a>
+          </li>
+          <li>
+            <a href="#configuring-the-sdk" class="toc-h1 toc-link" data-title="Configuring the SDK">Configuring the SDK</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#entering-your-game-info" class="toc-h2 toc-link" data-title="Entering your game info">Entering your game info</a>
+                  </li>
+                  <li>
+                    <a href="#installing-the-main-package" class="toc-h2 toc-link" data-title="Installing the Main Package">Installing the Main Package</a>
+                  </li>
+                  <li>
+                    <a href="#configuring-your-menu-scene" class="toc-h2 toc-link" data-title="Configuring your menu scene">Configuring your menu scene</a>
+                  </li>
+                  <li>
+                    <a href="#configuring-seemba-game-logic" class="toc-h2 toc-link" data-title="Configuring Seemba game logic">Configuring Seemba game logic</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#troubleshooting" class="toc-h1 toc-link" data-title="Troubleshooting">Troubleshooting</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#i-can-39-t-see-the-accept-terms-of-use-and-privacy-policy-text" class="toc-h2 toc-link" data-title="I can't see the accept terms of use and privacy policy text !">I can't see the accept terms of use and privacy policy text !</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#advanced-integration" class="toc-h1 toc-link" data-title="Advanced Integration">Advanced Integration</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#deep-linking" class="toc-h2 toc-link" data-title="Deep Linking">Deep Linking</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://dashboard.seemba.com/index.html'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://seemba.com'>Seemba</a>, All Rights Reserved</li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the Seemba SDK documentation page! You can use this documentation to integrate the Seemba Game Tournament and Monetization system.</p>
+<h1 id='importing-the-seemba-sdk-base-code'>Importing the Seemba SDK Base Code</h1>
+<p>installing our SDK is really simple, just open a new cmd prompt and execute the following commands :</p>
+
+<ol>
+<li>Go into your game&#39;s folder : <code>cd YOUR_UNITY_PROJECT_FOLDER</code> .</li>
+<li>Install OpenUPM using : <code>npm install -g openupm-cli</code>.</li>
+<li>Add Seemba to your poject using : <code>openupm add com.seemba.unitysdk</code>.</li>
+</ol>
+
+<p>Now go back to Unity and wait for SeemabSDK while being imported.</p>
+<h1 id='configuring-the-sdk'>Configuring the SDK</h1>
+<p>Once SeembaSDK is imported you have a few simple steps to finish your configuration : </p>
+<h2 id='entering-your-game-info'>Entering your game info</h2>
+<p>On the Unity Editor menu go to <code>Seemba --&gt; Integartion parameters</code></p>
+
+<p><img src="images/screenshots/1.png" alt="Step 1" /></p>
+
+<p>This window should appear :</p>
+
+<p><img src="images/screenshots/seembaIntegration.png" alt="Step 2" /></p>
+
+<p>Fill the informations with the ones on your dahshboard</p>
+
+<aside class="warning">
+Make sure that your game is configured on the dashboard side.
+</aside>
+
+<ol>
+<li>Change the attribute <strong>GAME_ID</strong> value with the ID of your game indicated on the dashboard .</li>
+<li>Change the attribute <strong>GAME_NAME</strong> value with the name of your game.</li>
+<li>Change the attribute <strong>GAME_SCENE_NAME</strong> value with the name of your game scene.</li>
+<li>Click <strong>Apply</strong> and close the window.</li>
+</ol>
+<h2 id='installing-the-main-package'>Installing the Main Package</h2>
+<p>On the Unity Editor menu go to <code>Seemba --&gt; Install Package</code></p>
+
+<p><img src="images/screenshots/Install-package.png" alt="Step 3" /></p>
+<h2 id='configuring-your-menu-scene'>Configuring your menu scene</h2>
+<p>Go to your first scene, create a new GameObject named seemba and <code>Seemba.cs</code> script to it.</p>
+
+<p><img src="images/screenshots/createobject.png" alt="Step 4" /></p>
+
+<ol>
+<li>Create a new Button to launch Seemba Tournaments.</li>
+<li>Assign the OnClick action of this button with the Enter() function of Seemba.cs.</li>
+</ol>
+
+<p><img src="images/screenshots/config.png" alt="Step 5" /></p>
+<h2 id='configuring-seemba-game-logic'>Configuring Seemba game logic</h2>
+<ol>
+<li>Add our package to your GameController.cs script : </li>
+</ol>
+<pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">SeembaSDK</span><span class="p">;</span>
+</code></pre>
+<ol>
+<li>Configure the score sending by changing your GameOver() function as the example shows :</li>
+</ol>
+<pre class="highlight csharp tab-csharp"><code><span class="k">if</span><span class="p">(</span><span class="n">Seemba</span><span class="p">.</span><span class="n">Get</span><span class="p">.</span><span class="n">IsSeemba</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Seemba</span><span class="p">.</span><span class="n">Get</span><span class="p">.</span><span class="nf">setResult</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">score</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p><img src="images/screenshots/sendingscore.png" alt="Step 6" /></p>
+
+<aside class="success">
+If your <strong>GAME SCENE</strong> is different than your <strong>MENU SCENE</strong>, ignore the rest you are done.
+</aside>
+
+<aside class="warning">
+If not, please follow this last step.
+</aside>
+
+<p>If your <strong>GAME SCENE</strong> is the same as your <strong>MENU SCENE</strong>, add these 3 lines to your <code>Start()</code> function in your GameController script.</p>
+<pre class="highlight csharp tab-csharp"><code><span class="k">if</span><span class="p">(</span><span class="n">EventsController</span><span class="p">.</span><span class="n">Get</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nf">Play</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+<p><img src="images/screenshots/onesceneconfig.png" alt="Step 7" /></p>
+<h1 id='troubleshooting'>Troubleshooting</h1><h2 id='i-can-39-t-see-the-accept-terms-of-use-and-privacy-policy-text'>I can&#39;t see the accept terms of use and privacy policy text !</h2>
+<p>To fix this issue, you need to import the essential ressources of TextMeshPro.
+in order to this follow these steps.</p>
+
+<p><code>Window --&gt; TextMeshPro --&gt; Import TMP Essential Ressources</code></p>
+
+<p>If any other questions please feel free to reach us on support@seemba.com </p>
+<h1 id='advanced-integration'>Advanced Integration</h1><h2 id='deep-linking'>Deep Linking</h2>
+<p>Deep links are links that point directly to content within your application. Unity uses the Application.absoluteURL property and Application.deepLinkActivated event to support deep links on the following platforms:</p>
+
+<ul>
+<li>Android</li>
+<li>iOS</li>
+</ul>
+
+<p>We will need the <strong>ProcessDeepLinkMngr.cs</strong> class file: </p>
+<pre class="highlight csharp tab-csharp"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">ProcessDeepLinkMngr</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="n">ProcessDeepLinkMngr</span> <span class="n">Instance</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">private</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">deeplinkURL</span><span class="p">;</span>
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">Awake</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Instance</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Instance</span> <span class="p">=</span> <span class="k">this</span><span class="p">;</span>                
+            <span class="n">Application</span><span class="p">.</span><span class="n">deepLinkActivated</span> <span class="p">+=</span> <span class="n">onDeepLinkActivated</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(!</span><span class="n">String</span><span class="p">.</span><span class="nf">IsNullOrEmpty</span><span class="p">(</span><span class="n">Application</span><span class="p">.</span><span class="n">absoluteURL</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="c1">// Cold start and Application.absoluteURL not null so process Deep Link.</span>
+                <span class="nf">onDeepLinkActivated</span><span class="p">(</span><span class="n">Application</span><span class="p">.</span><span class="n">absoluteURL</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="c1">// Initialize DeepLink Manager global variable.</span>
+            <span class="k">else</span> <span class="n">deeplinkURL</span> <span class="p">=</span> <span class="s">"[none]"</span><span class="p">;</span>
+            <span class="nf">DontDestroyOnLoad</span><span class="p">(</span><span class="n">gameObject</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="nf">Destroy</span><span class="p">(</span><span class="n">gameObject</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">onDeepLinkActivated</span><span class="p">(</span><span class="kt">string</span> <span class="n">url</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Update DeepLink Manager global variable, so URL can be accessed from anywhere.</span>
+        <span class="n">deeplinkURL</span> <span class="p">=</span> <span class="n">url</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre><h3 id='i-already-have-deep-linking-integrated-in-my-project'>I already have Deep Linking integrated in my project</h3>
+<p>In this case, we assume that you already have the file <strong>ProcessDeepLinkMngr.cs</strong>.
+You just need to add this line in the <strong>onDeepLinkActivated</strong> method :</p>
+
+<p><code>Seemba.Get.OnDeepLinkActivated(url);</code></p>
+
+<p>The process to configure an application to react to specific URLs is platform-specific.</p>
+<h3 id='ios'>IOS</h3>
+<p>if you already have Deep Linking in your project, it means you have added your scheme to open with Deep Linking.
+You don&#39;t need to do anything, you&#39;re all set!</p>
+<h3 id='android'>Android</h3>
+<p>if you already have Deep Linking in your project, it means you have an <code>AndroidManifest.xml</code> file, just add this line to your file :</p>
+
+<p><code> &lt;data android:scheme=&quot;YouSchemeName&quot; android:host=&quot;seemba&quot; /&gt;</code></p>
+<h3 id='i-want-to-integrate-deep-linking-in-my-project'>I want to integrate Deep Linking in my project</h3><h3 id='ios-2'>IOS</h3>
+<p>To add a URL scheme, follow these steps:</p>
+
+<ol>
+<li>Open the iOS Player Settings window (menu: <strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Player Settings</strong>, then select iOS).</li>
+<li>Select <strong>Other Settings</strong>, then scroll down to <strong>Configuration</strong>.</li>
+<li>Expand the Supported URL schemes section and, in the Element 0 field, enter the URL scheme associated with your app (for example, GameName).</li>
+</ol>
+
+<p>This makes your app open any link that starts with <code>GameName://</code> and allows you to process the URL in the <code>Application.deepLinkActivated</code> event.</p>
+<h3 id='android-2'>Android</h3><pre class="highlight xml tab-xml"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span> <span class="na">xmlns:tools=</span><span class="s">"http://schemas.android.com/tools"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;application&gt;</span>
+    <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">"com.unity3d.player.UnityPlayerActivity"</span> <span class="na">android:theme=</span><span class="s">"@style/UnityThemeSelector"</span> <span class="nt">&gt;</span>
+      <span class="nt">&lt;intent-filter&gt;</span>
+        <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.MAIN"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.LAUNCHER"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/intent-filter&gt;</span>
+      <span class="nt">&lt;intent-filter&gt;</span>
+        <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.VIEW"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.DEFAULT"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.BROWSABLE"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;data</span> <span class="na">android:scheme=</span><span class="s">"YouSchemeName"</span> <span class="na">android:host=</span><span class="s">"seemba"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/intent-filter&gt;</span>
+    <span class="nt">&lt;/activity&gt;</span>
+  <span class="nt">&lt;/application&gt;</span>
+<span class="nt">&lt;/manifest&gt;</span>
+</code></pre>
+<p>To enable deep linking, you need to set up an intent filter that overrides the standard app manifest to include a specific intent-filter section for Activity. The simplest way is to place the following <code>AndroidManifest.xml</code> file into your Project’s <code>Assets/Plugins/Android</code> folder. Unity automatically processes this file when you build your app:</p>
+
+<aside class="notice">
+If you already have an AndroidManifest.xml file in <code>Assets/Plugins/Android</code>, just create a Folder in that path and put the new <code>AndroidManifest.xml</code> there (for example, <code>Assets/Plugins/Android/Seemba</code>).
+</aside>
+<!-- # Errors
+
+<aside class="notice">
+This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+</aside>
+
+The Kittn API uses the following error codes:
+
+
+Error Code | Meaning
+---------- | -------
+400 | Bad Request -- Your request is invalid.
+401 | Unauthorized -- Your API key is wrong.
+403 | Forbidden -- The kitten requested is hidden for administrators only.
+404 | Not Found -- The specified kitten could not be found.
+405 | Method Not Allowed -- You tried to access a kitten with an invalid method.
+406 | Not Acceptable -- You requested a format that isn't json.
+410 | Gone -- The kitten requested has been removed from our servers.
+418 | I'm a teapot.
+429 | Too Many Requests -- You're requesting too many kittens! Slow down!
+500 | Internal Server Error -- We had a problem with our server. Try again later.
+503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later. -->
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="csharp">csharp</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
